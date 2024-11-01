@@ -58,11 +58,12 @@ def transform_meal_data(response_data):
 def get_rest_json():
     today = datetime.today()
     date = today.strftime('%Y-%m-%d')
-    response = requests.get('https://api.sunrin.kr/meal/rest/next')
+    response = requests.get('http://localhost:8030/meal/rest').json()
+
     if response['data'] == []:
         rest([], date, True)
     else:
-        transformed_data = transform_meal_data(response.json())
+        transformed_data = transform_meal_data(response)
         rest(transformed_data, date, False)
 
 def main():
