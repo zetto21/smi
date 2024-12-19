@@ -3,3 +3,5 @@ config/config.js
 node_modules/
 package-lock.json
 logs
+/.idea
+/dist

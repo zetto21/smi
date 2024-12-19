@@ -4,15 +4,19 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc -w"
   },
   "dependencies": {
+    "@types/node": "^22.10.2",
     "cron": "^3.1.6",
     "express": "^4.19.2",
     "instagram-private-api": "^1.46.1",
     "node-cron": "^3.0.3",
     "node-fetch": "^3.3.2",
     "request-promise": "^4.2.6",
+    "typescript": "^5.7.2",
     "winston": "^3.13.0",
     "winston-daily-rotate-file": "^5.0.0"
   },
