@@ -1,4 +1,4 @@
-const env = {
+export const env = {
     SCHOOL_NAME: process.env.SCHOOL_NAME,
 
     INSTAGRAM_USERNAME: process.env.INSTAGRAM_PASSWORD,
