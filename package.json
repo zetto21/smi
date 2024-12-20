@@ -21,6 +21,5 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "author": "iamfiro",
-  "license": "BSD 2-Clause",
-  "type": "module"
+  "license": "BSD 2-Clause"
 }
