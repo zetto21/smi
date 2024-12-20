@@ -1,6 +1,6 @@
 import chalk from "chalk";
 
-const requireEnv = [
+const requireEnv: ReadonlyArray<string> = [
     'SCHOOL_NAME',
     'INSTAGRAM_USERNAME',
     'INSTAGRAM_PASSWORD',
