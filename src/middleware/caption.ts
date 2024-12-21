@@ -4,7 +4,7 @@ const ERROR_MESSAGES = {
     EMPTY: '캡션이 비어있습니다.',
     NOT_STRING: '캡션은 문자열이어야 합니다.',
     TOO_LONG: `캡션은 ${INSTAGRAM_MAX_CAPTION_LENGTH}자를 넘을 수 없습니다.`,
-    TOO_MANY_HASHTAGS: 'Caption contains more than 30 hashtags',
+    TOO_MANY_HASHTAGS: '캡션의 해시태그는 30개를 넘을 수 없습니다.',
 } as const;
 
 export function vaildateCaption(caption: string): boolean {
