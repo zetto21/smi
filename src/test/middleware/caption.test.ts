@@ -1,4 +1,5 @@
-import { vaildateCaption } from '../../src/middleware/caption';
+import { vaildateCaption } from "../../middleware/caption";
+
 
 describe('인스타그램 Caption 검증 함수 테스트', () => {
     const vaildateCaptionText: string = '선린투데이 급식 알림입니다 #밥밥밥';

@@ -1,4 +1,4 @@
-import { vaildateWebhookUrl } from "../../src/middleware/webhook";
+import { vaildateWebhookUrl } from "../../middleware/webhook";
 
 describe('vaildateWebhookUrl 함수 테스트', () => {
     it('유효한 Discord Webhook URL은 에러를 발생시키지 않는다', () => {
