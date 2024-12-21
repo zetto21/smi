@@ -6,7 +6,10 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "tsc -w"
+    "dev": "tsc -w",
+
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@types/node": "^22.10.2",
@@ -23,5 +26,10 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "author": "iamfiro",
-  "license": "BSD 2-Clause"
+  "license": "BSD 2-Clause",
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5"
+  }
 }
