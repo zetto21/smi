@@ -1,5 +1,5 @@
 import { env } from "../constants/env";
-import { WebhookConfig } from "../types/utils/webhook";
+import { WebhookConfig } from "../types/service/webhook";
 
 const WEBHOOK_AUTHOR_NAME = '선린투데이';
 const WEBHOOK_AUTHOR_AVATAR_URL = 'https://avatars.githubusercontent.com/u/72495729';
