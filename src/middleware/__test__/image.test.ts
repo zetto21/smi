@@ -1,7 +1,7 @@
 
 import fs from "fs";
 import path from "path";
-import { validateImage } from "../../middleware/image";
+import { validateImage } from "../image";
 
 describe("validateImage 함수 테스트", () => {
     // 가상 파일 경로 설정
