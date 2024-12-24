@@ -1,4 +1,4 @@
-import { vaildateCaption } from "../../middleware/caption";
+import { vaildateCaption } from "../caption";
 
 
 describe('인스타그램 Caption 검증 함수 테스트', () => {
