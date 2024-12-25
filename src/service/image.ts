@@ -2,15 +2,12 @@ import {exec} from 'child_process';
 import { Logger } from '../utils/logger';
 import { promisify } from 'util';
 import fs from 'fs';
+import { DelayOptions } from '../types';
 
 const asyncExec = promisify(exec);
 const logger = new Logger();
 
 type ImageServiceResponse = Buffer<ArrayBufferLike>;
-
-interface DelayOptions {
-    delay?: number;
-}
 
 export class ImageService {
     public async generateMealImage({delay}: DelayOptions): Promise<ImageServiceResponse> {
