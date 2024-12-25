@@ -21,7 +21,7 @@ const initializeBot = async () => {
 const bot = initializeBot();
 
 // 업로드 스케줄링
-cron.schedule(env.INTERVAL, async () => {
+cron.schedule('* * * * *', async () => {
     logger.info('일일 업로드 Cron Job이 실행됩니다');
     try {
         (await bot).postDaily({delay: 10});
