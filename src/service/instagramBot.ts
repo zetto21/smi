@@ -11,9 +11,9 @@ export class InstagramBot {
     private instagramService: InstagramService;
     private imageService: ImageService;
 
-    constructor() {
-        this.instagramService = new InstagramService();
-        this.imageService = new ImageService();
+    constructor(instagramService: InstagramService, imageService: ImageService) {
+        this.instagramService = instagramService;
+        this.imageService = imageService;
 
         this.instagramService.login(process.env.INSTAGRAM_USERNAME, process.env.INSTAGRAM_PASSWORD);
     }
