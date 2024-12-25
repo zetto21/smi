@@ -18,3 +18,8 @@ export function getDayName(date: Date, lang: string): string {
     }
     return dateName[lang][date.getDay() as DateIndex];
 }
+
+export function isFirstWeekdayOfMonth(date: Date): boolean {
+    const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+    return date.getDate() === 1 && firstDay.getDay() !== 0 && firstDay.getDay() !== 6;
+}
