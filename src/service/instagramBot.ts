@@ -5,6 +5,7 @@ import { getDayName, isFirstWeekdayOfMonth } from "../utils/date";
 import { Logger } from "../utils/logger";
 import { env } from "../constants/env";
 import { sendWebhook } from "./webhook";
+import { WebhookPostNotification } from "./webhook/notification";
 
 const logger = new Logger();
 
@@ -31,9 +32,7 @@ export class InstagramBot {
             // 매일 트리거 되는 급식 이미지 업로드
             await this.postMealImage(date, delay);
 
-            sendWebhook({
-                content: `✅ 일일 업로드가 성공적으로 완료되었습니다 (${date.toISOString()})`,
-            });
+            WebhookPostNotification();
         } catch (error) {
             console.error(`일일 업로드 실패: ${error}`);
         }
@@ -65,7 +64,7 @@ export class InstagramBot {
             await this.instagramService.publishPhoto({
                 file: mealImage,
                 caption: `${env.SCHOOL_NAME} 오늘의 정보\n\n${formattedDate}\n\n#급식표 #밥밥밥`,
-            });
+            })
 
             logger.info(`급식 이미지 업로드 성공`);
         } catch (error) {
