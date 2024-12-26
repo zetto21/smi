@@ -4,7 +4,6 @@ import { InstagramService } from './service/instagram';
 import { ImageService } from './service/image';
 import { InstagramBot } from './service/instagramBot';
 import cron from 'node-cron';
-import { env } from './constants/env';
 import { Logger } from './utils/logger';
 
 // Env가 제대로 설정되어 있는지 확인합니다

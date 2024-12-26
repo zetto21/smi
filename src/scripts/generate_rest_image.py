@@ -4,7 +4,7 @@ from datetime import datetime
 import requests
 
 def loadfont(fontsize):
-    ttf = './assets/fonts/Pretendard-Bold.ttf'
+    ttf = './src/assets/fonts/Pretendard-Bold.ttf'
     return ImageFont.truetype(font=ttf, size=fontsize)
 
 weekdays = ['월', '화', '수', '목', '금']
@@ -16,7 +16,7 @@ def rest(lst, date, is_empty):
     date_font = loadfont(36)
     date_font_color = 'rgb(196, 196, 196)'
 
-    image = Image.open('./assets/images/rest_background.png')
+    image = Image.open('./src/assets/images/rest_background.png')
     draw = ImageDraw.Draw(image)
 
     parsed_day = date.split('-')
@@ -58,7 +58,7 @@ def transform_meal_data(response_data):
 def get_rest_json():
     today = datetime.today()
     date = today.strftime('%Y-%m-%d')
-    response = requests.get('http://localhost:8030/meal/rest').json()
+    response = requests.get('https://api.sunrin.kr/meal/rest').json()
 
     if response['data'] == []:
         rest([], date, True)
