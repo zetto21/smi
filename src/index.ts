@@ -4,6 +4,7 @@ import { InstagramService } from './service/instagram';
 import { ImageService } from './service/image';
 import { InstagramBot } from './service/instagramBot';
 import cron from 'node-cron';
+import { env } from './constants/env';
 import { Logger } from './utils/logger';
 
 // Env가 제대로 설정되어 있는지 확인합니다
@@ -20,7 +21,7 @@ const initializeBot = async () => {
 const bot = initializeBot();
 
 // 업로드 스케줄링
-cron.schedule('* * * * *', async () => {
+cron.schedule(env.INTERVAL, async () => {
     logger.info('일일 업로드 Cron Job이 실행됩니다');
     try {
         (await bot).postDaily({delay: 10});
