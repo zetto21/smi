@@ -1,7 +1,11 @@
 export interface Embed {
-    title: string;
-    description: string;
-    color: number;
+    title?: string;
+    description?: string;
+    color?: number;
+    timestamp?: string;
+    image?: {
+        url: any;
+    };
 }
 
 export interface WebhookAuthor {
@@ -10,6 +14,6 @@ export interface WebhookAuthor {
 }
 
 export interface WebhookConfig extends Partial<WebhookAuthor> {
-    content: string;
+    content?: string;
     embeds?: Embed[];
 }
