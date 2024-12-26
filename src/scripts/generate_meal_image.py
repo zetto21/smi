@@ -8,7 +8,7 @@ import requests
 import sys
 
 def loadfont(fontsize):
-    ttf = './assets/fonts/Pretendard-Bold.ttf'
+    ttf = './src/assets/fonts/Pretendard-Bold.ttf'
     return ImageFont.truetype(font=ttf, size=fontsize)
 
 weekdays = ['월', '화', '수', '목', '금']
@@ -22,7 +22,7 @@ def school_meal(lst, date, weekday):
     date_font = loadfont(36)
     date_font_color = 'rgb(196, 196, 196)'
 
-    image = Image.open('./assets/images/food_background.png')
+    image = Image.open('./src/assets/images/food_background.png')
     draw = ImageDraw.Draw(image)
 
     parsed_day = date.split('-')
@@ -44,7 +44,7 @@ def school_meal(lst, date, weekday):
 def get_meal_json():
     today = datetime.today()
     date = today.strftime('%Y-%m-%d')
-    response = requests.get('http://127.0.0.1:8030/meal/today')
+    response = requests.get('https://api.sunrin.kr/meal/today')
     data = response.json()['data']['meals']
     todayData = [d['meal'] for d in data]
     school_meal(todayData, date, today.weekday())
