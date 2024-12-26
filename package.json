@@ -1,11 +1,11 @@
 {
   "name": "sunrin_today",
-  "description": "선린인고 급식 인스타에 자동화 게시하는 프로젝트",
-  "version": "1.0.0",
-  "main": "index.js",
+  "description": "선린인고 급식 인스타에 자동화 프로젝트",
+  "version": "2.0.0",
+  "main": "dist/index.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "npm run build && node dist/index.js",
     "dev": "tsc -w",
     "test": "jest",
     "test:watch": "jest --watch"
