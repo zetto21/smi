@@ -53,10 +53,6 @@ def main():
     if not os.path.exists('./build/'):
         os.makedirs('./build/')
 
-    if len(sys.argv) < 2:
-        time.sleep(random.randint(0, 10) * 60)
-    else:
-        time.sleep(random.randint(0, int(sys.argv[1])) * 60)
     get_meal_json()
 
 main()
