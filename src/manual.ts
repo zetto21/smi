@@ -45,7 +45,7 @@ async function postManually() {
 
 logger.info('Instagram Bot이 실행되었습니다');
 
+logger.info('로그인하는 중...');
 setTimeout(async () => {
-  logger.info('로그인하는 중...');
   await postManually();
 }, 5000);
