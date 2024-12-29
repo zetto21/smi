@@ -1,7 +1,7 @@
 import { InstagramService } from "./instagram";
 import { ImageService } from "./image";
 import { DelayOptions } from "../types";
-import { getDayName, isFirstWeekdayOfMonth } from "../utils/date";
+import { getCurrentDateKorean, getDayName, isFirstWeekdayOfMonth } from "../utils/date";
 import { Logger } from "../utils/logger";
 import { env } from "../constants/env";
 import { sendWebhook } from "./webhook";
@@ -63,7 +63,7 @@ export class InstagramBot {
         
             await this.instagramService.publishPhoto({
                 file: mealImage,
-                caption: `${env.SCHOOL_NAME} 오늘의 정보\n\n${formattedDate}\n\n#급식표 #밥밥밥`,
+                caption: `${env.SCHOOL_NAME} 오늘의 정보\n\n${getCurrentDateKorean(date)}\n\n#급식표 #밥밥밥`,
             })
 
             logger.info(`급식 이미지 업로드 성공`);
