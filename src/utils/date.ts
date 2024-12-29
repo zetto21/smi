@@ -23,3 +23,7 @@ export function isFirstWeekdayOfMonth(date: Date): boolean {
     const firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
     return date.getDate() === 1 && firstDay.getDay() !== 0 && firstDay.getDay() !== 6;
 }
+
+export function getCurrentDateKorean(date: Date): string {
+    return `${date.getFullYear()}년 ${String(date.getMonth() + 1).padStart(2, '0')}월 ${String(date.getDate()).padStart(2, '0')}일 ${getDayName(date, 'ko')}요일`;
+}

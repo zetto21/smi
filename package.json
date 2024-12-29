@@ -1,7 +1,7 @@
 {
   "name": "sunrin_today",
   "description": "선린인고 급식 인스타에 자동화 프로젝트",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "main": "dist/index.ts",
   "scripts": {
     "build": "tsc",
