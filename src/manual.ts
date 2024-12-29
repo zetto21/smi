@@ -21,15 +21,16 @@ const initializeBot = async () => {
 const bot = initializeBot();
 
 // 업로드 스케줄링
-cron.schedule(env.INTERVAL, async () => {
-  logger.info('일일 업로드 Cron Job이 실행됩니다');
+
+async function postManually() {
+  logger.info('수동 업로드가 실행됩니다');
   try {
-    (await bot).postDaily({ delay: 10 });
-    logger.info('일일 업로드 Cron Job이 성공적으로 실행되었습니다');
+    (await bot).postDaily({ delay: 0 });
+    logger.info('수동 업로드가 성공적으로 실행되었습니다');
   } catch {
-    logger.error('일일 업로드 Cron Job이 실패했습니다');
+    logger.error('수동 업로드가  실패했습니다');
   }
-});
+}
 
 // // 다음날 급식을 Discord Webhook으로 전송하는 스케줄링
 // cron.schedule('0 22 * * *', async () => {
@@ -43,3 +44,8 @@ cron.schedule(env.INTERVAL, async () => {
 // });
 
 logger.info('Instagram Bot이 실행되었습니다');
+
+logger.info('로그인하는 중...');
+setTimeout(async () => {
+  await postManually();
+}, 5000);
