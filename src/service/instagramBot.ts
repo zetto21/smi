@@ -68,7 +68,7 @@ export class InstagramBot {
       ).padStart(2, '0')}월 ${String(date.getDate()).padStart(
         2,
         '0'
-      )}일 ${getDayName(date, 'ko')}`;
+      )}일 ${getDayName(date, 'ko')}요일`;
 
       await this.instagramService.publishPhoto({
         file: mealImage,
