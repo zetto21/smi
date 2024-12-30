@@ -1,11 +1,10 @@
-import { InstagramService } from "./instagram";
-import { ImageService } from "./image";
-import { DelayOptions } from "../types";
-import { getCurrentDateKorean, getDayName, isFirstWeekdayOfMonth } from "../utils/date";
-import { Logger } from "../utils/logger";
-import { env } from "../constants/env";
-import { sendWebhook } from "./webhook";
-import { WebhookPostNotification } from "./webhook/notification";
+import { env } from '../constants/env';
+import { DelayOptions } from '../types';
+import { getDayName, isFirstWeekdayOfMonth } from '../utils/date';
+import { Logger } from '../utils/logger';
+import { ImageService } from './image';
+import { InstagramService } from './instagram';
+import { WebhookPostNotification } from './webhook/notification';
 
 const logger = new Logger();
 
@@ -54,16 +53,6 @@ export class InstagramBot {
         caption: `이 달의 휴식 - ${monthDate}`,
         reason: 'monthly',
       });
-
-    private async postMealImage(date: Date, delay?: number) {
-        try {
-            const mealImage = await this.imageService.generateMealImage({delay: delay});
-            const formattedDate = getDayName(date, 'ko');
-        
-            await this.instagramService.publishPhoto({
-                file: mealImage,
-                caption: `${env.SCHOOL_NAME} 오늘의 정보\n\n${getCurrentDateKorean(date)}\n\n#급식표 #밥밥밥`,
-            })
       logger.info(`이 달의 휴식 이미지 업로드 성공`);
     } catch (error) {
       logger.error(`이 달의 휴식 이미지 업로드 실패: ${error}`);
