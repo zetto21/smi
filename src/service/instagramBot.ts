@@ -63,7 +63,12 @@ export class InstagramBot {
   private async postMealImage(date: Date) {
     try {
       const mealImage = await this.imageService.generateMealImage();
-      const formattedDate = getDayName(date, 'ko');
+      const formattedDate = `${date.getFullYear()}년 ${String(
+        date.getMonth() + 1
+      ).padStart(2, '0')}월 ${String(date.getDate()).padStart(
+        2,
+        '0'
+      )}일 ${getDayName(date, 'ko')}`;
 
       await this.instagramService.publishPhoto({
         file: mealImage,
