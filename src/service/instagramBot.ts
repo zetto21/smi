@@ -35,7 +35,7 @@ export class InstagramBot {
         await this.postMealImage(date);
 
         WebhookPostNotification();
-      }, delay * 1000);
+      }, delay * 60 * 1000);
     } catch (error) {
       console.error(`일일 업로드 실패: ${error}`);
     }
@@ -62,6 +62,17 @@ export class InstagramBot {
 
   private async postMealImage(date: Date) {
     try {
+      const isExist = await fetch('https://api.sunrin.kr/meal/today')
+        .then((res) => {
+          return res.status === 404; // 404면 true, 아니면 false 반환
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          return false;
+        });
+
+      if (!isExist) return;
+
       const mealImage = await this.imageService.generateMealImage();
       const formattedDate = `${date.getFullYear()}년 ${String(
         date.getMonth() + 1
