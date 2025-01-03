@@ -24,7 +24,10 @@ const bot = initializeBot();
 cron.schedule(env.INTERVAL, async () => {
   logger.info('일일 업로드 Cron Job이 실행됩니다');
   try {
-    (await bot).postDaily({ delay: 10 });
+    const randomDelay = Math.floor(Math.random() * 11);
+    (await bot).postDaily({
+      delay: randomDelay,
+    });
     logger.info('일일 업로드 Cron Job이 성공적으로 실행되었습니다');
   } catch {
     logger.error('일일 업로드 Cron Job이 실패했습니다');
