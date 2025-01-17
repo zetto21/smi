@@ -1,15 +1,32 @@
-FROM node:20-bookworm-slim AS builder
+FROM node:20.18.1-alpine3.21 AS builder
 
-COPY . /app
+ENV TZ=Asia/Seoul
+RUN apk add --no-cache bash openssl tzdata libc6-compat \
+    && cp /usr/share/zoneinfo/$TZ /etc/localtime \
+    && echo $TZ > /etc/timezone
+
 WORKDIR /app
-
-ENV time_zone=Asia/Seoul
-
-RUN apt-get update -y && apt-get install -y openssl python3
-RUN corepack enable
-RUN corepack prepare yarn --activate
+COPY package.json yarn.lock ./
+RUN corepack enable && corepack prepare yarn --activate
 RUN yarn install --frozen-lockfile
 
-RUN yarn run build
+COPY . .
+RUN yarn build
 
-CMD ["yarn", "run", "start"]
+FROM node:20.18.1-alpine3.21 AS final
+
+ENV TZ=Asia/Seoul \
+        NODE_ENV=production
+RUN apk add --no-cache tzdata curl \
+    && cp /usr/share/zoneinfo/$TZ /etc/localtime \
+    && echo $TZ > /etc/timezone \
+    && addgroup -g 1001 app \
+    && adduser -u 1001 -G app -s /bin/sh -D app
+
+WORKDIR /app
+COPY --from=builder /app/node_modules node_modules
+COPY --from=builder /app/dist dist
+
+USER app
+
+CMD ["node", "dist/index.js"]
