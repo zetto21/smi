@@ -18,7 +18,7 @@ export class InstagramBot {
 
     this.instagramService.login(
       process.env.INSTAGRAM_USERNAME,
-      process.env.INSTAGRAM_PASSWORD
+      process.env.INSTAGRAM_PASSWORD,
     );
   }
 
@@ -44,8 +44,9 @@ export class InstagramBot {
   private async postMonthlyRestImage(date: Date) {
     try {
       const restImage = await this.imageService.generateRestImage();
+
       const monthDate = `${date.getFullYear()}년 ${String(
-        date.getMonth() + 1
+        date.getMonth() + 1,
       ).padStart(2, '0')}월`;
 
       await this.instagramService.publishPhoto({
@@ -64,7 +65,7 @@ export class InstagramBot {
     try {
       const isExist = await fetch('https://api.sunrin.kr/meal/today')
         .then((res) => {
-          return res.status === 404; // 404면 true, 아니면 false 반환
+          return res.status === 200; // 404면 true, 아니면 false 반환
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -75,10 +76,10 @@ export class InstagramBot {
 
       const mealImage = await this.imageService.generateMealImage();
       const formattedDate = `${date.getFullYear()}년 ${String(
-        date.getMonth() + 1
+        date.getMonth() + 1,
       ).padStart(2, '0')}월 ${String(date.getDate()).padStart(
         2,
-        '0'
+        '0',
       )}일 ${getDayName(date, 'ko')}요일`;
 
       await this.instagramService.publishPhoto({

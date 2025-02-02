@@ -1,14 +1,14 @@
 import 'dotenv/config';
-import { vaildateEnv } from './middleware/env';
-import { InstagramService } from './service/instagram';
-import { ImageService } from './service/image';
-import { InstagramBot } from './service/instagramBot';
 import cron from 'node-cron';
 import { env } from './constants/env';
+import { validateEnv } from './middleware/env';
+import { ImageService } from './service/image';
+import { InstagramService } from './service/instagram';
+import { InstagramBot } from './service/instagramBot';
 import { Logger } from './utils/logger';
 
 // Env가 제대로 설정되어 있는지 확인합니다
-vaildateEnv();
+validateEnv();
 
 const logger = new Logger();
 
