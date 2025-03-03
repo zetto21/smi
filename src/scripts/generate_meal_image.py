@@ -1,11 +1,13 @@
-from PIL import Image, ImageDraw, ImageFont
 import json
 import os
-from datetime import datetime
-import time
 import random
-import requests
 import sys
+import time
+from datetime import datetime
+
+import requests
+from PIL import Image, ImageDraw, ImageFont
+
 
 def loadfont(fontsize):
     ttf = './src/assets/fonts/Pretendard-Bold.ttf'
@@ -17,7 +19,7 @@ def school_meal(lst, date, weekday):
     W = 1024
     H = 1024
 
-    lst = reversed(lst)
+    lst = list(reversed(lst))
 
     date_font = loadfont(36)
     date_font_color = 'rgb(196, 196, 196)'
@@ -33,10 +35,13 @@ def school_meal(lst, date, weekday):
     meal_font_color = 'rgb(71, 122, 255)'
 
     text_l = 70
-
-    for l in lst:
-        draw.text((75, H - 75 - text_l), l, font=meal_font, fill=meal_font_color)
-        text_l += 85
+    
+    if len(lst) == 0:
+        draw.text((75, H - 75 - text_l), '급식이 없어요 ㅠㅠ', font=meal_font, fill=meal_font_color)
+    else:
+        for l in lst:
+            draw.text((75, H - 75 - text_l), l, font=meal_font, fill=meal_font_color)
+            text_l += 85
 
     image.convert('RGB').save('./build/meal.jpeg', format='JPEG', quality=95)
 
