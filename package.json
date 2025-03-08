@@ -1,43 +1,6 @@
 {
-<<<<<<< HEAD
-  "name": "sunrin_today",
-  "description": "선린인고 급식 인스타에 자동화 프로젝트",
-  "version": "2.0.1",
-  "main": "dist/index.ts",
-  "scripts": {
-    "build": "tsc",
-    "start": "yarn run build && node dist/index.js",
-    "manual": "yarn run build && node dist/manual.js",
-    "dev": "tsc -w",
-    "test": "jest",
-    "test:watch": "jest --watch"
-  },
-  "dependencies": {
-    "@types/node": "^22.10.2",
-    "chalk": "4.1.2",
-    "cron": "^3.1.6",
-    "dotenv": "^16.4.7",
-    "express": "^4.19.2",
-    "instagram-private-api": "^1.46.1",
-    "node-cron": "^3.0.3",
-    "node-fetch": "^3.3.2",
-    "request-promise": "^4.2.6",
-    "typescript": "^5.7.2",
-    "winston": "^3.13.0",
-    "winston-daily-rotate-file": "^5.0.0"
-  },
-  "author": "iamfiro",
-  "license": "BSD-2-Clause",
-  "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/node-cron": "^3.0.11",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.2.5"
-  },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
-=======
   "name": "gkghs_meal",
-  "description": "곡성고 급식 인스타에 자동화 게시",
+  "description": "급식 인스타에 자동화 게시",
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
@@ -63,5 +26,4 @@
   "devDependencies": {
     "@types/node-cron": "^3.0.11"
   }
->>>>>>> eefccd5 (Initial commit)
 }
