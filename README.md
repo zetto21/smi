@@ -24,3 +24,6 @@ pip install -r requirements.txt
 ```sh
 npm start 
 ```
+
+## 주의사항 
+인스타 계정 매트로으로 경고 나올수있어요 그래서 주기적으로 관리해주세요. 
