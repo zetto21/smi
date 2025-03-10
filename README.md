@@ -1,6 +1,8 @@
 # 🏫 학교급식 인스타 전송 🍽️  
 해당코드 [여기](https://github.com/sunrin-today/scheduler) 에서 참고해서 만들었습니다.\
-인스타 프로필 설정에서 링크에 제목: 출처 / URL :https://github.com/zetto21/smi/ 해주세요.
+인스타 프로필 설정에서 링크에 
+- 제목: 출처 -
+- URL :https://github.com/zetto21/smi/ 해주세요.
 
 ## 📌 준비사항  
 ### 1️⃣ 환경 변수 설정  
