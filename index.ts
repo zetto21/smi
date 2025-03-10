@@ -54,7 +54,7 @@ const postToInstagram = async (): Promise<void> => {
 
     console.log("🐍 Python 실행 요청됨");
 
-    exec(".venv/bin/python3 ./scripts/image_maker.py", async (err, stdout, stderr) => {
+    exec("python3 ./scripts/image_maker.py", async (err, stdout, stderr) => {
         console.log("🐍 Python 실행 됨");
         if (err) {
             console.error(err);
