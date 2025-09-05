@@ -1,5 +1,6 @@
 # 🏫 학교급식 인스타 전송 🍽️  
-해당코드 [여기](https://github.com/sunrin-today/scheduler) 에서 참고해서 만들었습니다.
+(곡성고 정보 인스타에서 사용했던 코드입니다)
+- 해당코드 [여기](https://github.com/sunrin-today/scheduler) 에서 참고해서 만들었습니다.
 
 ## 📌 준비사항  
 ### 1️⃣ 환경 변수 설정  
