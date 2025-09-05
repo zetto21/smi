@@ -12,7 +12,8 @@
 - **파일명** `001.jpg`
 
 ### 3️⃣ 필수 모듈 설치  
-아래 명령어를 실행하여 Node.js 및 Python 모듈을 설치하세요.  
+아래 명령어를 실행하여 Node.js 및 Python 모듈을 설치하세요. 
+* Node.js , python 설치 된 상태에서 진행 해주세요
 ```sh
 npm i
 pip install -r requirements.txt
